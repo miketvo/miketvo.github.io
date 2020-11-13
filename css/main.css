@@ -15,7 +15,7 @@
  *  08. header styles
  *  09. home
  *  10. about
- *  11. skills
+ *  11. profile
  *  12. credentials
  *  13. portfolio
  *  14. stats
@@ -233,7 +233,7 @@ blockquote:before {
 	font-size: 10rem;
 	line-height: 0px;
 	margin: 0;
-	color: rgba(0, 0, 0, 0.3);
+	color: rgba(90, 90, 90, 0.3);
 	font-family: arial, sans-serif;
 	position: absolute;
 	top: 3.6rem;
@@ -1184,6 +1184,10 @@ input::-moz-focus-inner {
 	width: 50%;
 }
 
+.skill-bars li .percent53 {
+	width: 53%;
+}
+
 .skill-bars li .percent55 {
 	width: 55%;
 }
@@ -1192,8 +1196,20 @@ input::-moz-focus-inner {
 	width: 60%;
 }
 
+.skill-bars li .percent64 {
+	width: 64%;
+}
+
 .skill-bars li .percent65 {
 	width: 65%;
+}
+
+.skill-bars li .percent67 {
+	width: 67%;
+}
+
+.skill-bars li .percent69 {
+	width: 69%;
 }
 
 .skill-bars li .percent70 {
@@ -1210,6 +1226,10 @@ input::-moz-focus-inner {
 
 .skill-bars li .percent85 {
 	width: 85%;
+}
+
+.skill-bars li .percent88 {
+	width: 88%;
 }
 
 .skill-bars li .percent90 {
@@ -1636,7 +1656,7 @@ header .header-logo a {
 	background: #151515;
 	width: 100%;
 	height: 100%;
-	background-image: url(../images/intro-bg.jpg);
+	background-image: url(../images/cafeshot-bg.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: cover;
@@ -1978,7 +1998,7 @@ header .header-logo a {
 }
 
 .about-profile,
-.about-services {
+.about-interest {
 	float: left;
 	width: 50%;
 	padding-left: 20px;
@@ -1999,27 +2019,27 @@ header .header-logo a {
 	display: none;
 }
 
-.about-services {
+.about-interest {
 	padding-left: 9rem;
 	position: relative;
 }
 
-.about-services p.lead {
+.about-interest p.lead {
 	color: #757575;
 }
 
-.about-services ul.services {
+.about-interest ul.services {
 	list-style: none;
 	margin-left: 0;
 }
 
-.about-services ul.services li {
+.about-interest ul.services li {
 	padding-left: 0;
 	margin-bottom: .6rem;
 	position: relative;
 }
 
-.about-services ul.services li h4 {
+.about-interest ul.services li h4 {
 	font-size: 1.6rem;
 	text-transform: uppercase;
 	letter-spacing: .15rem;
@@ -2027,12 +2047,12 @@ header .header-logo a {
 	margin-bottom: .6rem;
 }
 
-.about-services ul.services li p {
+.about-interest ul.services li p {
 	margin-bottom: 1.5rem;
 	color: #4f4f4f;
 }
 
-.about-services ul.services .icon-wrap {
+.about-interest ul.services .icon-wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2040,23 +2060,23 @@ header .header-logo a {
 	color: #4C2405;
 }
 
-.about-services ul.services .icon-wrap i {
+.about-interest ul.services .icon-wrap i {
 	font-size: 5rem;
 }
 
-.about-services ul.services .item-photography .icon-wrap {
+.about-interest ul.services .item-photography .icon-wrap {
 	top: -.3rem;
 }
 
-.about-services ul.services .item-webdesign .icon-wrap {
+.about-interest ul.services .item-webdesign .icon-wrap {
 	top: -.7rem;
 }
 
-.about-services ul.services .item-uiux .icon-wrap {
+.about-interest ul.services .item-uiux .icon-wrap {
 	top: -.1rem;
 }
 
-.about-services ul.services .service-item {
+.about-interest ul.services .service-item {
 	padding-left: 8rem;
 }
 
@@ -2069,7 +2089,7 @@ header .header-logo a {
 		padding-right: 5rem;
 	}
 
-	.about-services {
+	.about-interest {
 		padding-left: 5rem;
 	}
 
@@ -2080,7 +2100,7 @@ header .header-logo a {
 		padding-right: 4rem;
 	}
 
-	.about-services {
+	.about-interest {
 		padding-left: 4rem;
 	}
 
@@ -2101,7 +2121,7 @@ header .header-logo a {
 	}
 
 	.about-profile,
-	.about-services {
+	.about-interest {
 		float: none;
 		width: 100%;
 		padding-top: 10.8rem;
@@ -2110,7 +2130,7 @@ header .header-logo a {
 	}
 
 	.about-profile .intro,
-	.about-services .intro {
+	.about-interest .intro {
 		text-align: center;
 	}
 
@@ -2127,7 +2147,7 @@ header .header-logo a {
 
 @media only screen and (max-width:600px) {
 	.about-profile,
-	.about-services {
+	.about-interest {
 		padding-left: 35px;
 		padding-right: 35px;
 	}
@@ -2136,40 +2156,40 @@ header .header-logo a {
 
 @media only screen and (max-width:400px) {
 	.about-profile,
-	.about-services {
+	.about-interest {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
 
-	.about-services {
+	.about-interest {
 		text-align: center;
 	}
 
-	.about-services ul.services .icon-wrap {
+	.about-interest ul.services .icon-wrap {
 		position: static;
 		margin-bottom: .6rem;
 	}
 
-	.about-services ul.services .icon-wrap i {
+	.about-interest ul.services .icon-wrap i {
 		font-size: 6rem;
 	}
 
-	.about-services ul.services .service-item {
+	.about-interest ul.services .service-item {
 		padding-left: 0;
 		margin-bottom: 3rem;
 	}
 
-	.about-services ul.services .service-item h4 {
+	.about-interest ul.services .service-item h4 {
 		margin-bottom: 1.5rem;
 	}
 
 }
 
 /* ===================================================================
- *  11. skills - (_layout.scss)
+ *  11. profile - (_layout.scss)
  *
  * ------------------------------------------------------------------- */
-#skills {
+#profile {
 	background-color: #1f0e01;
 	background-image: url(../images/skills-bg.jpg);
 	background-repeat: no-repeat;
@@ -2183,7 +2203,7 @@ header .header-logo a {
 	color: rgba(255, 255, 255, 0.3);
 }
 
-#skills .overlay {
+#profile .overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2193,7 +2213,7 @@ header .header-logo a {
 	background-color: #000000;
 }
 
-#skills .gradient-overlay {
+#profile .gradient-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2206,62 +2226,62 @@ header .header-logo a {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);  /* IE6-9 */
 }
 
-#skills .row {
+#profile .row {
 	position: relative;
 }
 
-#skills [class="col-skills"] {
+#profile [class="col-profile"] {
 	width: 50%;
 	padding-right: 0;
 }
 
-#skills .section-intro {
+#profile .section-intro {
 	text-align: left;
 }
 
-#skills .section-intro h3 {
+#profile .section-intro h3 {
 	color: rgba(255, 255, 255, 0.35);
 	color: #7c3b08;
 }
 
-#skills .section-intro h1 {
+#profile .section-intro h1 {
 	color: #FFFFFF;
 }
 
-#skills .skill-bars {
+#profile .skill-bars {
 	margin-top: 8.4rem;
 }
 
-#skills .skill-bars li {
+#profile .skill-bars li {
 	background: #7c3b08;
 	margin-bottom: 7.2rem;
 }
 
-#skills .skill-bars li strong {
+#profile .skill-bars li strong {
 	color: #FFFFFF;
 }
 
-#skills .skill-bars li .progress {
+#profile .skill-bars li .progress {
 	background: #FFFFFF;
 }
 
 /* ------------------------------------------------------------------- 
  * responsive:
- * skills
+ * profile
  * ------------------------------------------------------------------- */
 @media only screen and (max-width:1024px) {
-	#skills [class="col-skills"] {
+	#profile [class="col-profile"] {
 		width: 75%;
 	}
 
 }
 
 @media only screen and (max-width:768px) {
-	#skills .section-intro {
+	#profile .section-intro {
 		text-align: center;
 	}
 
-	#skills [class="col-skills"] {
+	#profile [class="col-profile"] {
 		width: 100%;
 		padding-right: 15px;
 	}
@@ -2269,14 +2289,365 @@ header .header-logo a {
 }
 
 @media only screen and (max-width:600px) {
-	#skills [class="col-skills"] {
+	#profile [class="col-profile"] {
 		padding-right: 10px;
 	}
 
 }
 
 @media only screen and (max-width:400px) {
-	#skills [class="col-skills"] {
+	#profile [class="col-profile"] {
+		padding-right: 0;
+	}
+
+}
+
+/* ===================================================================
+ *  11.1 profile-mbti - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- */
+ #profile-mbti {
+	background-color: #1f0e01;
+	background-image: url(../images/mbti.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	min-height: 800px;
+	position: relative;
+	padding: 12rem 0 9.6rem;
+	color: rgba(255, 255, 255, 0.3);
+}
+
+#profile-mbti .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .1;
+	background-color: #000000;
+}
+
+#profile-mbti .gradient-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	background: -moz-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, black 0%, black 20%, transparent 100%);  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);  /* IE6-9 */
+}
+
+#profile-mbti .row {
+	position: relative;
+}
+
+#profile-mbti [class="col-profile-mbti"] {
+	width: 50%;
+	padding-right: 0;
+}
+
+#profile-mbti .section-intro {
+	text-align: left;
+}
+
+#profile-mbti .section-intro h3 {
+	color: rgba(255, 255, 255, 0.35);
+	color: #7c3b08;
+}
+
+#profile-mbti .section-intro h1 {
+	color: #FFFFFF;
+}
+
+#profile-mbti .skill-bars {
+	margin-top: 8.4rem;
+}
+
+#profile-mbti .skill-bars li {
+	background: #7c3b08;
+	margin-bottom: 7.2rem;
+}
+
+#profile-mbti .skill-bars li strong {
+	color: #FFFFFF;
+}
+
+#profile-mbti .skill-bars li .progress {
+	background: #FFFFFF;
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * profile-mbti
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width:1024px) {
+	#profile-mbti [class="col-profile-mbti"] {
+		width: 75%;
+	}
+
+}
+
+@media only screen and (max-width:768px) {
+	#profile-mbti .section-intro {
+		text-align: center;
+	}
+
+	#profile-mbti [class="col-profile-mbti"] {
+		width: 100%;
+		padding-right: 15px;
+	}
+
+}
+
+@media only screen and (max-width:600px) {
+	#profile-mbti [class="col-profile-mbti"] {
+		padding-right: 10px;
+	}
+
+}
+
+@media only screen and (max-width:400px) {
+	#profile-mbti [class="col-profile-mbti"] {
+		padding-right: 0;
+	}
+
+}
+
+/* ===================================================================
+ *  11.2 profile-vark - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- */
+ #profile-vark {
+	background-color: #1f0e01;
+	background-image: url(../images/vark.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	min-height: 800px;
+	position: relative;
+	padding: 12rem 0 9.6rem;
+	color: rgba(255, 255, 255, 0.3);
+}
+
+#profile-vark .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .6;
+	background-color: #000000;
+}
+
+#profile-vark .gradient-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	background: -moz-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, black 0%, black 20%, transparent 100%);  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);  /* IE6-9 */
+}
+
+#profile-vark .row {
+	position: relative;
+}
+
+#profile-vark [class="col-profile-vark"] {
+	width: 50%;
+	padding-right: 0;
+}
+
+#profile-vark .section-intro {
+	text-align: left;
+}
+
+#profile-vark .section-intro h3 {
+	color: rgba(255, 255, 255, 0.35);
+	color: #7c3b08;
+}
+
+#profile-vark .section-intro h1 {
+	color: #FFFFFF;
+}
+
+#profile-vark .skill-bars {
+	margin-top: 8.4rem;
+}
+
+#profile-vark .skill-bars li {
+	background: #7c3b08;
+	margin-bottom: 7.2rem;
+}
+
+#profile-vark .skill-bars li strong {
+	color: #FFFFFF;
+}
+
+#profile-vark .skill-bars li .progress {
+	background: #FFFFFF;
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * profile-vark
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width:1024px) {
+	#profile-vark [class="col-profile-vark"] {
+		width: 75%;
+	}
+
+}
+
+@media only screen and (max-width:768px) {
+	#profile-vark .section-intro {
+		text-align: center;
+	}
+
+	#profile-vark [class="col-profile-vark"] {
+		width: 100%;
+		padding-right: 15px;
+	}
+
+}
+
+@media only screen and (max-width:600px) {
+	#profile-vark [class="col-profile-vark"] {
+		padding-right: 10px;
+	}
+
+}
+
+@media only screen and (max-width:400px) {
+	#profile-vark [class="col-profile-vark"] {
+		padding-right: 0;
+	}
+
+}
+
+/* ===================================================================
+ *  11.3 profile-acct - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- */
+ #profile-acct {
+	background-color: #1f0e01;
+	background-image: url(../images/acct.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	min-height: 800px;
+	position: relative;
+	padding: 12rem 0 9.6rem;
+	color: rgba(255, 255, 255, 0.3);
+}
+
+#profile-acct .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background-color: #000000;
+}
+
+#profile-acct .gradient-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .2;
+	background: -moz-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, black 0%, black 20%, transparent 100%);  /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, black 0%, black 20%, transparent 100%);  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=1);  /* IE6-9 */
+}
+
+#profile-acct .row {
+	position: relative;
+}
+
+#profile-acct [class="col-profile-acct"] {
+	width: 50%;
+	padding-right: 0;
+}
+
+#profile-acct .section-intro {
+	text-align: left;
+}
+
+#profile-acct .section-intro h3 {
+	color: rgba(255, 255, 255, 0.35);
+	color: #7c3b08;
+}
+
+#profile-acct .section-intro h1 {
+	color: #FFFFFF;
+}
+
+#profile-acct .skill-bars {
+	margin-top: 8.4rem;
+}
+
+#profile-acct .skill-bars li {
+	background: #7c3b08;
+	margin-bottom: 7.2rem;
+}
+
+#profile-acct .skill-bars li strong {
+	color: #FFFFFF;
+}
+
+#profile-acct .skill-bars li .progress {
+	background: #FFFFFF;
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * profile-acct
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width:1024px) {
+	#profile-acct [class="col-profile-acct"] {
+		width: 75%;
+	}
+
+}
+
+@media only screen and (max-width:768px) {
+	#profile-acct .section-intro {
+		text-align: center;
+	}
+
+	#profile-acct [class="col-profile-acct"] {
+		width: 100%;
+		padding-right: 15px;
+	}
+
+}
+
+@media only screen and (max-width:600px) {
+	#profile-acct [class="col-profile-acct"] {
+		padding-right: 10px;
+	}
+
+}
+
+@media only screen and (max-width:400px) {
+	#profile-acct [class="col-profile-acct"] {
 		padding-right: 0;
 	}
 
@@ -2764,7 +3135,7 @@ header .header-logo a {
  * ------------------------------------------------------------------- */
 #contact {
 	background-color: #111111;
-	background-image: url(../images/profile-bg.jpg);
+	background-image: url(../images/profile-2-bg.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: cover;
