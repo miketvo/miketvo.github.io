@@ -2310,7 +2310,7 @@ header .header-logo a {
 	background-color: #1f0e01;
 	background-image: url(../images/mbti.jpg);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: left;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -2544,7 +2544,7 @@ header .header-logo a {
 	background-color: #1f0e01;
 	background-image: url(../images/acct.jpg);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: left;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
