@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js oldie ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js oldie ie9" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta name="author" content="Michael Tuong-Minh Vo">
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Michael Tuong-Minh Vo</title>
+    <meta name="description" content="Personal Website">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="margin: 5rem 10rem;">
+
+<h1>A (Non)comprehensive Git and GitHub Tutorial</h1>
+<h2>Mike Vo, December 5th, 2020</h2>
+<hr>
+
+<p>
+    Version control is an important concept in software development. Collaboration of many contributors to one project
+    requires great coordination. Sometimes, experimental changes to the project may be needed, and if two or more people
+    made conflicting changes, it is very time consuming to resolve the issue, especially if the collaborators are
+    working over long distances or if direct communication is impractical. Version control is a piece of software that
+    aids with resolving those issues and helps increasing the speed and efficiency of development by keeping track of
+    file changes and archiving older versions of a project.
+</p>
+<p>
+    Git is a free and open source version control software (among others like SVN, Mecurial, Monotone and many more…)
+    aimed to expedite IT projects of both simple and complex architecture<a
+        href="#git-and-github-tutorial-ref-1">[1]</a>. GitHub is an online repository (project) hosting website designed
+    to work with Git. As of 2016, Git and GitHub are two of the most popular tools among professionals working with
+    software development<a href="#git-and-github-tutorial-ref-2">[2]</a>.
+</p>
+<p>
+    In the next 9 steps, we will learn how to install Git, set up a GitHub account and start using them for our projects.
+    You should be familiar with navigating between different folders using your operating system command shell. Tutorial
+    on how to use the command line can be found here:
+</p>
+<ul>
+    <li><p><a href="https://www.freecodecamp.org/news/how-to-use-the-command-prompt-in-windows">https://www.freecodecamp.org/news/how-to-use-the-command-prompt-in-windows</a>
+        (Windows)</p></li>
+    <li><p><a href="https://www.businessinsider.com/how-to-open-terminal-on-mac">https://www.businessinsider.com/how-to-open-terminal-on-mac</a>
+        (Mac)</p></li>
+    <li><p><a href="https://www.linux.com/training-tutorials/how-use-linux-command-line-basics-cli">https://www.linux.com/training-tutorials/how-use-linux-command-line-basics-cli</a>
+        (Linux)</p></li>
+</ul>
+
+<h3 id="step-1-registering-a-github-account-to-host-your-project-online">Step 1: Registering a GitHub account to host
+    your project online:</h3>
+<ul>
+    <li><p>Register your account at <a href="https://github.com/join">https://github.com/join</a>.</p></li>
+    <li><p>If you have never used GitHub before, it is recommended that you check out the Hello World guide provided by
+        GitHub (<a href="https://guides.github.com/activities/hello-world">https://guides.github.com/activities/hello-world</a>)
+        to understand the basic concepts of repository and workflow.</p></li>
+    <li><p>GitHub is a paid service for large and complex projects. However, if you are a university student or teacher,
+        you might be eligible for a discount on GitHub’s services. In that case, you can use the email provided by your
+        school to sign up for a discount at <a href="https://education.github.com">https://education.github.com</a>. For
+        further information, please contact your organization.</p></li>
+</ul>
+
+<h3 id="step-2-installing-and-setting-up-git">Step 2: Installing and setting up Git</h3>
+<ul>
+    <li><p>Git can be installed following the instructions on <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
+    </p></li>
+    <li><p>The first thing to do after Git is installed on your local machine is configuring Git with your GitHub
+        username and email address. Open your terminal and type the following commands (Git commands are the same across
+        operating systems):</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git config --global user.name "<em>your-github-username</em>"&nbsp;
+        $ git config --global email "<em>your-email@domain.com</em>
+    </code></pre>
+</div>
+<ul>
+    <li><p>Done! It is that simple. Now we will learn how to use Git and GitHub to version control your project.</p>
+    </li>
+</ul>
+
+<h3 id="step-3-create-a-new-project-via-github">Step 3: Create a new project via GitHub</h3>
+<ul>
+    <li><p>Login to your GitHub account. Assuming you have already followed the “Hello World” tutorial provided by
+        GitHub, you should be able to create a new repository for your project. After it is created, it should look like
+        this on your browser:</p></li>
+</ul>
+<p><img src="../media/12.2020/image23.png" alt="screenshot" style="width:5.73958in;height:2.74274in"/></p>
+<ul>
+    <li><p>Click the green “Code” button and copy the HTTPS link from the drop-down menu.</p></li>
+</ul>
+<p><img src="../media/12.2020/image24.png" alt="screenshot" style="width:3.78807in;height:3.10937in"/></p>
+<ul>
+    <li><p><strong>If you already have an existing project on your local machine skip to <em>“Step 4: Configure your
+        existing project to work with Git”</em>.</strong></p></li>
+    <li><p>Navigate to a folder on your local machine where you would like to put your project and type the following
+        command:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git clone <em>paste the copied https link here</em>
+    </code></pre>
+</div>
+<ul>
+    <li><p>You will be asked to login to your GitHub account either via a graphical window or the command prompt:</p>
+    </li>
+</ul>
+<p><img src="../media/12.2020/image25.png" alt="screenshot" style="width:3.11553in;height:3.16146in"/></p>
+<p>Or</p>
+<div class="code-block">
+    <pre><code>
+        Username for 'https://github.com': <em>yourusername</em>&nbsp;
+        Password for 'https://yourusername@github.com': <em>yourpassword</em>
+    </code></pre>
+</div>
+<ul>
+    <li><p>If you entered everything correctly, you would now have your project folder downloaded onto your machine and
+        the command line output should be similar to this:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        remote: Enumerating objects: 3, done.&nbsp;
+        remote: Counting objects: 100% (3/3), done.&nbsp;
+        remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0&nbsp;
+        Unpacking objects: 100% (3/3), done.
+    </code></pre>
+</div>
+
+<h3 id="step-4-configure-your-existing-project-to-work-with-git">Step 4: Configure your existing project to work with
+    Git</h3>
+<ul>
+    <li><p><strong>Ignore this step if you have already completed <em>“Step 3: Create a new project via
+        GitHub”</em>.</strong></p></li>
+    <li><p>Navigate to your project folder using the command line.</p></li>
+    <li><p>Initialize the folder to work with Git with this command:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git init
+    </code></pre>
+</div>
+<ul>
+    <li><p>Add the files and changes you want Git to keep track of:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git add .&nbsp;
+        # Add all the files and folders in the current folder.&nbsp;
+        # Alternatively, you can use git add <em>filename</em> for individual&nbsp;
+        # files.
+    </code></pre>
+</div>
+<ul>
+    <li><p>Commit the added content to Git’s library to be prepared for uploading, note that the comment in the double
+        quote is required:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git commit -m “Initial commit”
+    </code></pre>
+</div>
+<ul>
+    <li><p>Setup Git to work with GitHub for the current project:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git remote add origin <em>paste the https link in step 3 here</em>&nbsp;
+        # Sets the new remote&nbsp;
+        $ git remote -v&nbsp;
+        # Verifies the new remote URL
+    </code></pre>
+</div>
+<ul>
+    <li><p>“Push” your files to GitHub to finish:</p></li>
+</ul>
+<div class="code-block">
+    <pre><code>
+        $ git push origin main
+    </code></pre>
+</div>
+
+<h3 id="step-5-your-editor-of-choice">Step 5: Your editor of choice</h3>
+<p>
+    For software development projects, there are many text editors that support Git version control. The most popular
+    ones are <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://atom.io/">Atom</a>, and
+    <a href="https://www.sublimetext.com/">Sublime Text</a>. If you are working with a modern integrated development
+    environment (IDE), it will most probably also have Git support. Consult the relevant software documentation for more
+    information on version control support. After installing and configuring your editor, you should be able to start
+    writing your code and building your project. Next comes the exciting part!</p>
+
+<h3 id="step-6-add-commit-and-push">Step 6: Add, commit and push</h3>
+<p>To start contributing to the project we are hosting on GitHub, the <em>add</em>, <em>commit</em>, and <em>push</em>
+    commands are our powerful allies. After you have finished with your edits on the local file, it is time to upload it
+    onto the project GitHub repository.</p>
+<div class="code-block">
+    <pre><code>
+        $ git add .&nbsp;
+        $ git commit -m “<em>description of your changes</em>”&nbsp;
+        $ git push
+    </code></pre>
+</div>
+<p>For individual files, you can use this command instead:</p>
+<div class="code-block">
+    <pre><code>
+        $ git add <em>filename</em>
+    </code></pre>
+</div>
+
+<h3 id="step-7-pull-and-how-it-can-help-you-resolve-conflict">Step 7: Pull and how it can help you resolve conflict</h3>
+<p>Conflict happens when multiple people are working on one file and their local changes does not match that of the
+    online repository. In this case, attempts to push your changes to the repository will result in an error
+    message:</p>
+<p>Use the pull command to download the conflicting changes from the repository.</p>
+<div class="code-block">
+    <pre><code>
+        $ git pull
+    </code></pre>
+</div>
+<p>
+    Your Git-compatible editor should show you your changes versus the conflicting changes, and you can discuss with your
+    colleagues on which change to keep. After you have edited the file to have the desired changes, you can now use the
+    commands in <em>Step 6</em> to upload the changes and resolve the conflict.</p>
+<p>It is recommended that we use <em>git pull</em> at the start of each work session to avoid potential conflicts.</p>
+<h3 id="step-8-branching">Step 8: Branching</h3>
+<p>
+    When working on a new feature of a project, it is a good idea to modify a copy of the project itself before “merging”
+    the copy into the main project files. This is called “branching” and is an essential process of software
+    development.</p>
+<p>Navigate to our git-ready project folder using the command line and type the following command:</p>
+<div class="code-block">
+    <pre><code>
+        $ git branch<br>
+        <strong>* main</strong>   # The currently active branch&nbsp;
+        branch1&nbsp;
+        branch2
+    </code></pre>
+</div>
+<p>The branch command can also create new branches:</p>
+<div class="code-block">
+    <pre><code>
+        $ git branch <em>new-branch</em> # This command has no output
+    </code></pre>
+</div>
+<p>To switch between branches, we “check them out”:</p>
+<div class="code-block">
+    <pre><code>
+        $ git checkout <em>new-branch</em><br>
+        Switched to branch 'new-branch'
+    </code></pre>
+</div>
+<p>
+    When we are done with implementing new files into our branch, it is time “push” it to GitHub. If the branch already
+    exists on GitHub and we are just adding to it, simply follow <em>Step 6</em>. On the other hand, if it only exists
+    on our local machine and not on GitHub, we will have to use these commands instead:</p>
+<div class="code-block">
+    <pre><code>
+        $ git add .&nbsp;
+        $ git commit -m “add a new branch”&nbsp;
+        $ git push origin <em>new-branch</em>
+    </code></pre>
+</div>
+<p>
+    This will create a new branch in the online GitHub repository and pushes the content of our new branch into it. After
+    development of a new feature is complete, we can go to our GitHub repository with a web browser to create a pull
+    request to merge the new feature into the main branch. More information on branching and merging can be found in the
+    GitHub’s <em>Hello World</em> tutorial or here: <a
+            href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control</a>
+</p>
+
+<h3 id="step-9-there-is-always-more-to-learn">Step 9: There is always more to learn!</h3>
+<p>
+    This tutorial is intended as a crash course to get you started with using Git and GitHub. More advanced tutorials
+    such as <a href="https://www.freecodecamp.org/news/search/?query=git">these ones on freeCodeCamp</a> can also help
+    us delve deeper into software development workflow using version control. Git is a very powerful and versatile tool,
+    so to utilize all of its feature, please refer to the Git and GitHub documentation for more comprehensive
+    information. In the IT world, it is unavoidable that we will have to read a lot of documentation as new technologies
+    emerge and replace the obsolete. This is one of the most important skills for an IT professional.</p>
+<p>If you have any feedback or improvement on this tutorial, feel free to contact me via email at <a
+        href="mailto:s3877562@rmit.edu.vn">s3877562@rmit.edu.vn</a>. Godspeed and good luck on your journey!</p>
+<p>Tuong-Minh “Mike” Vo.</p>
+
+<hr>
+
+<h2>References</h2>
+<p id="git-and-github-tutorial-ref-1">[1] Software Freedom Conservancy. "git --everything-is-local." <a href="https://git-scm.com/">https://git-scm.com/</a> (accessed December 5th, 2020).</p>
+<p id="git-and-github-tutorial-ref-2">[2] J. D. Blischak, E. R. Davenport, and G. Wilson, "A Quick Introduction to Version Control with Git and GitHub,"<em>PLOS Computational Biology Education collection,</em> p. 1, January 19th 2016, doi: 10.1371/journal.pcbi.100466.</p>
+
+
+<footer>
+    <div class="copyright">
+    <span style="color: #cbcbcb">© Copyright Mike Vo 2020. Powered by Bootstrap 4.</span>
+    </div>
+</footer>
+
+
+</body>
