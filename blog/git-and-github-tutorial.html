@@ -224,10 +224,32 @@
 <p>Conflict happens when multiple people are working on one file and their local changes does not match that of the
     online repository. In this case, attempts to push your changes to the repository will result in an error
     message:</p>
+<div class="code-block">
+    <pre><code>
+        To https://github.com/yourusername/repo.git&nbsp;
+         ! [rejected]        main -> main (fetch first)&nbsp;
+        error: failed to push some refs to 'https://github.com/miketvo/test_repo.git'hint: Updates were rejected because the remote contains work that you do&nbsp;
+        hint: not have locally. This is usually caused by another repository pushing&nbsp;
+        hint: to the same ref. You may want to first integrate the remote changes&nbsp;
+        hint: (e.g., 'git pull ...') before pushing again.&nbsp;
+        hint: See the 'Note about fast-forwards' in 'git push --help' for details.&nbsp;
+    </code></pre>
+</div>
 <p>Use the pull command to download the conflicting changes from the repository.</p>
 <div class="code-block">
     <pre><code>
-        $ git pull
+        $ git pull<br>
+        Username for 'https://github.com': yourusername&nbsp;
+        Password for 'https://miketvo@github.com':&nbsp;
+        remote: Enumerating objects: 5, done.&nbsp;
+        remote: Counting objects: 100% (5/5), done.&nbsp;
+        remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0&nbsp;
+        Unpacking objects: 100% (3/3), done.&nbsp;
+        From https://github.com/yourusername/repo&nbsp;
+           7b32407..050181c  main       -> origin/main&nbsp;
+        Auto-merging README.md&nbsp;
+        CONFLICT (content): Merge conflict in README.md&nbsp;
+        Automatic merge failed; fix conflicts and then commit the result.
     </code></pre>
 </div>
 <p>
