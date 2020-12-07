@@ -4,6 +4,7 @@
     <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,8 @@
       <workItem from="1607178328658" duration="4132000" />
       <workItem from="1607183020411" duration="3036000" />
       <workItem from="1607188051385" duration="661000" />
-      <workItem from="1607188904486" duration="44000" />
+      <workItem from="1607188904486" duration="696000" />
+      <workItem from="1607310716086" duration="1069000" />
     </task>
     <servers />
   </component>
