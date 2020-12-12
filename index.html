@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js oldie ie8" lang="en"><![endif]-->
-<!--[if IE 9]><html class="no-js oldie ie9" lang="en"><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html lang="en">
 <head>
     <meta name="author" content="Michael Tuong-Minh Vo">
 
@@ -18,21 +16,65 @@
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/492245eeb1.js" crossorigin="anonymous"></script>
 
     <!-- script
     ================================================== -->
+    <script src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class="container-fluid">
-<div class="m-5">
-<h1>Under development, please come back later</h1>
-<p>In the mean time, you can check out my <a href="blog/git-and-github-tutorial.html">Git and GitHub tutorial</a></p>
-</div>
+<div class="jumbotron jumbotron-fluid" id="banner">
+    <div class="container text-light">
+        <h3>Hello,</h3>
+        <h1 class="hero-text">I'M MIKE VO</h1>
+        <br>
+        <h2>Undergraduate student<br>RMIT University Vietnam</h2>
+    </div>
 </div>
 
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm bg-light sticky-top">
+    <!-- Toggler/collapsibe Navbar -->
+    <button class="navbar-toggler mx-auto border-0" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item px-5 mx-auto active">
+            <a class="nav-link" href="#">About Me</a>
+        </li>
+        <li class="nav-item px-5 mx-auto">
+            <a class="nav-link" href="#">My Team</a>
+        </li>
+        <li class="nav-item px-5 mx-auto">
+            <a class="nav-link " href="#">Project</a>
+        </li>
+        <li class="nav-item px-5 mx-auto">
+            <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item px-5 mx-auto">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+    </ul>
+    </div>
+</nav>
+
+<section id="about">
+    <p>
+
+    </p>
+</section>
+
+<button onclick="scrollToTop()" class="bg-dark" id="bttn-backtotop" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
 </body>
+</html>

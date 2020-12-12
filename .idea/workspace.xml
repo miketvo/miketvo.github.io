@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/acct.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/cafeshot-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/cafeshot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/guitar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/headshot_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/headshot_2bw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/mbti-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/mbti.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/profile-2-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/profile-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/vark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/vark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/12.2020/verticalshot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/miketvo.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/miketvo.github.io.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -61,7 +80,10 @@
       <workItem from="1607183020411" duration="3036000" />
       <workItem from="1607188051385" duration="661000" />
       <workItem from="1607188904486" duration="696000" />
-      <workItem from="1607310716086" duration="1069000" />
+      <workItem from="1607310716086" duration="1157000" />
+      <workItem from="1607398414062" duration="11152000" />
+      <workItem from="1607432706858" duration="3949000" />
+      <workItem from="1607801142075" duration="2308000" />
     </task>
     <servers />
   </component>
