@@ -398,6 +398,12 @@ mark,
   max-width: 100%;
   height: auto; }
 
+.img-profile {
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 17rem;
+  max-height: 100%; }
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -6184,6 +6190,10 @@ button.bg-dark:focus {
 .my-5 {
   margin-top: 3rem !important; }
 
+.mt-6,
+.my-6 {
+  margin-top: 4rem !important; }
+
 .mr-5,
 .mx-5 {
   margin-right: 3rem !important; }
@@ -6191,6 +6201,10 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important; }
+
+.mb-6,
+.my-6 {
+  margin-bottom: 4rem !important; }
 
 .ml-5,
 .mx-5 {
@@ -7893,9 +7907,9 @@ header {
       position: relative; } }
   .wrap .about-desc .bold-text {
     z-index: 1;
-    position: absolute;
-    top: -80px;
-    left: -50px;
+    position: relative;
+    top: -35rem;
+    left: 21rem;
     right: 0;
     bottom: 0;
     font-weight: 700 !important;
@@ -7910,6 +7924,22 @@ header {
     @media (max-width: 767.98px) {
       .wrap .about-desc .bold-text {
         display: none; } }
+  .wrap .about-desc .bold-text-about {
+    z-index: 1;
+    font-size: 100px;
+    text-align: end;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.08);
+    text-transform: uppercase; }
+  @media (min-width: 992px) {
+    .wrap .about-desc .bold-text {
+      font-size: 10em; } }
+  @media (max-width: 991.98px) {
+    .wrap .about-desc .bold-text {
+      display: none; } }
+  @media (max-width: 767.98px) {
+    .wrap .about-desc .bold-text {
+      display: none; } }
 
 .profile {
   margin-bottom: 5em; }
