@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/git-and-github-tutorial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +11,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -35,6 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -61,7 +59,11 @@
       <workItem from="1607183020411" duration="3036000" />
       <workItem from="1607188051385" duration="661000" />
       <workItem from="1607188904486" duration="696000" />
-      <workItem from="1607310716086" duration="1069000" />
+      <workItem from="1607310716086" duration="1157000" />
+      <workItem from="1607398414062" duration="11152000" />
+      <workItem from="1607432706858" duration="3949000" />
+      <workItem from="1607801142075" duration="3198000" />
+      <workItem from="1607804950462" duration="15067000" />
     </task>
     <servers />
   </component>
