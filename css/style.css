@@ -7892,6 +7892,7 @@ header {
     .wrap .about-desc {
       position: relative; } }
   .wrap .about-desc .bold-text {
+    z-index: 1;
     position: absolute;
     top: -80px;
     left: -50px;
@@ -8783,3 +8784,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.top-z-index {
+  z-index: 10000;
+}

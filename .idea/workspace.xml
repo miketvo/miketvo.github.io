@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="" />
+    <list default="true" id="44b0250a-d6ac-4d0b-b6d1-76bd730d1e21" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/images/12.2020/27580858_548818588827744_637986249012936704_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/27581777_420870651680081_6114404438602940416_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/27581914_2107992679420390_3067557026822356992_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/35618211_196664430994801_4132217846849601536_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/bg1.ai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/bg1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/cafeshot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/flowerandbee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/guitar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/headshot_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/headshot_2bw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/long_hair.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/seattleharbour.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/verticalshot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/12.2020/verticalshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_BW-dark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_BW-light.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Color palette.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Inline Logo tricolor alt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Inline_Logo BW-dark.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Inline_Logo BW-light.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Inline_Logo tricolor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Inline_Logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Source.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Vertical_art.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_Vertical_art_alt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_tricolor alt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kuri/Kuri_tricolor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-single.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog-single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +70,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -62,6 +101,7 @@
       <workItem from="1607398414062" duration="11152000" />
       <workItem from="1607432706858" duration="3949000" />
       <workItem from="1607801142075" duration="3198000" />
+      <workItem from="1607804950462" duration="14875000" />
     </task>
     <servers />
   </component>
