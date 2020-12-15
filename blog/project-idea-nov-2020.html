@@ -86,11 +86,11 @@
             <div class="col-md-8 text-justify">
               <h1 class="text-center"><strong>The Idea</strong></h1>
               <hr style="border-top: 1px solid white">
-              <h2>Overview</h2>
+              <h2 class="text-left">Overview</h2>
               <p>A simple HTML game loaded onto the user’s device whenever there is an internet connection issue on RMIT Saigon South (SGS) campus network as a replacement for the default connection timed out error page displayed on the user’s web browser. It would be a simple and addictive retro/arcade game intended as a distraction for the users to ease the network traffic and raise awareness about RMIT SGS campus network issue.</p>
-              <h2>Motivation</h2>
-              <p>The internet connection at RMIT University Vietnam SGS Campus has frequently been an issue among staffs and students, and more so during the recent months of Semester 3 of 2020. This is evidenced on the RMIT Confessions Facebook page as a quick search for posts containing the word “wifi” shows a lot of complaints about the slow network connection at SGS campus (see Appendix A) that appears to coincide with the student influx in Semester 3 of each year. Furthermore, in a recent Facebook post on November 28th, 2020, RMIT University Vietnam wrote: “Internet usage at SGS campus has recently been unstable due to the overuse of streaming platforms for music, movies, YouTube, Facebook and other services not directly related to academic needs. This has been severely impacting the digital experience of our community…”<a href="#references">[1]</a> This issue is undeniably a controversial topic of discussion recognized by both the faculties and students. Although we have yet to find an effective solution for this problem, my idea would work as a short-term solution to get the matter more recognition, and in the long term to provide our campus community with a geeky insider only “easter egg” campus feature.</p>
-              <h2>Description</h2>
+              <h2 class="text-left">Motivation</h2>
+              <p>The internet connection at RMIT University Vietnam SGS Campus has frequently been an issue among staffs and students, and more so during the recent months of Semester 3 of 2020. This is evidenced on the RMIT Confessions Facebook page as a quick search for posts containing the word “wifi” shows a lot of complaints about the slow network connection at SGS campus (see <a href="#appendix-a">Appendix A</a>) that appears to coincide with the student influx in Semester 3 of each year. Furthermore, in a recent Facebook post on November 28th, 2020, RMIT University Vietnam wrote: “Internet usage at SGS campus has recently been unstable due to the overuse of streaming platforms for music, movies, YouTube, Facebook and other services not directly related to academic needs. This has been severely impacting the digital experience of our community…”<a href="#references">[1]</a> This issue is undeniably a controversial topic of discussion recognized by both the faculties and students. Although we have yet to find an effective solution for this problem, my idea would work as a short-term solution to get the matter more recognition, and in the long term to provide our campus community with a geeky insider only “easter egg” campus feature.</p>
+              <h2 class="text-left">Description</h2>
               <p>The local wireless network at RMIT SGS would send a custom error page containing the error message and a HTML game to the user’s browser whenever a connection timed out error occurs. This concept is similar in idea to the Dinosaur Game developed by Google for their Chrome browser<a href="#references">[2]</a>, but this would instead be implemented on a network-wide system, not just on the local machine. The process is visually described in Fig 1 shown below (heavily simplified for brevity):</p>
               <p class="text-center">
                 <img class="img-fluid" alt="Diagram" src="../images/12.2020/Fig-1-Internet-access-at-RMIT.jpg">
@@ -127,7 +127,7 @@
                   <li>Extra feature: The wind strength will be increased incrementally every 500 meters travelled for scaled difficulty.</li>
                 </ul>
               </ul>
-              <h2>Tools and Technologies</h2>
+              <h2 class="text-left">Tools and Technologies</h2>
               <ul>
                 <li>Game engine: <a href="https://phaser.io">Phaser</a>. Phaser a popular and easy-to-learn open-source 2D HTML5 game framework actively developed and maintained by Photon Storm<a href="#references">[3]</a> on GitHub (<a href="https://github.com/photonstorm/phaser">https://github.com/photonstorm/phaser</a>).</li>
                 <li>Sprites and other arts: Aseprite for pixel arts, Photoshop, Illustrator, or other open-source equivalents such as Gimp and Inkscape for more complex raster and vector photo editing capabilities.</li>
@@ -135,10 +135,10 @@
                 <li>Version control: Git with repository hosted on <a href="https://github.com">GitHub</a>.</li>
                 <li>Permission to access RMIT University Vietnam SGS Campus wireless network hardware. This would be the hardest part of this project due to strict network authorization at RMIT SGS campus.</li>
               </ul>
-              <h2>Skills required</h2>
+              <h2 class="text-left">Skills required</h2>
               <p>For this project, the minimum requirement is a basic understanding of web development, including basic knowledge of HTML/CSS and intermediate proficiency in JavaScript. Some familiarity with game development concepts and object-oriented programming is also beneficial, as this game would heavily utilize the Phaser game development framework. Since this project uses GitHub for version control, beginner to intermediate experience in using the git command line tools or other equivalent graphical interfaces is important for effective collaboration between team members. Furthermore, basic image and audio editing skills would also aid in the making of the game assets using dedicated software mentioned above.</p>
               <p>For implementation on RMIT SGS wireless network, my preliminary research shows that some knowledge in network administration is also necessary. However, permission to access and modify the campus network behavior is still a major challenge that is heavily dependent on RMIT leadership’s decision.</p>
-              <h2>Outcome</h2>
+              <h2 class="text-left">Outcome</h2>
               <p>If successfully implemented on RMIT SGS network, this idea would serve as a public software artefact made by RMIT students to celebrate our community’s talent and creativity – similar in function to the decorative LED sign conceptualized by RMIT students and installed on the fourth floor of Academic Building 2 SGS campus. Though it is not the direct solution to the network connection issue at the campus, it would gather more attention to the problem and contribute to a more positive atmosphere in the discourse between all parties involved.</p>
               <br>
               <h1 class="text-center"><strong>Feedback</strong></h1>
@@ -148,14 +148,56 @@
               <p>On the other hand, I also realized that my idea still needs further input and would be best refined under a team effort with contribution from my team members. The game concept is currently not finalized and might need to be changed to be more engaging for the player. To achieve that, for Assignment 3, my team would need other students’ help to playtest the game and collect further data and feedback.</p>
               <p>I believe that as a community, with the right resources and mindset, we can bring this project to life at RMIT and make a positive impact on our campus while commemorating our hard work and creativity.</p>
               <h4 class="text-center pt-5">References</h4>
-              <div class="d-flex pb-5 text-left" id="references">
+              <div class="container-fluid pb-5 text-left" id="references">
                 <ol>
                   <li id="ref1">RMIT University Vietnam, "Solution for the wi-fi issue at SGS Campus," <a href="https://www.facebook.com/RMITUniversityVietnam/photos/a.680416032023173/3688582664539813/">https://www.facebook.com/RMITUniversityVietnam/photos/a.680416032023173/3688582664539813/</a>, Ed., ed, 2020.</li>
                   <li id="ref2">A. Roshan. "Google Easter Eggs : 15+ Best Google Easter Eggs & Google Tricks 2017." <a href="https://web.archive.org/web/20170805055813/http://feedsyouneed.com/google-easter-eggs-google-tricks/">https://web.archive.org/web/20170805055813/http://feedsyouneed.com/google-easter-eggs-google-tricks/</a> (accessed December 4th, 2020).</li>
                   <li id="ref3">R. P. S. Davey. "Phaser - HTML5 Game Framework." <a href="https://github.com/photonstorm/phaser/tree/v3.24.1">https://github.com/photonstorm/phaser/tree/v3.24.1</a> (accessed December 2nd, 2020).</li>
                 </ol>
               </div>
-
+              <h4 class="text-center pt-5" id="appendix-a">Appendix A</h4>
+              <h2 class="text-center">Some RMIT Confessions Facebook posts regarding the wi-fi issue at RMIT SGS Campus</h2>
+              <div class="container-fluid py-5 text-left">
+                <h5>On November 16th, 2020, an anonymous user wrote:</h5>
+                <blockquote class="px-5">“Trường trả tiền 4G cho em được không ạ? Wifi nát quá :(((“</blockquote>
+                <p>Translation: I wish the school would pay for my 4G data plan. The campus wi-fi is very bad.</p>
+                <p><a href="https://www.facebook.com/rmitvnconf/posts/3436478079801503">Source</a> (accessed on December 7th, 2020).</p>
+                <h5>On November 12th, 2020, an anonymous user wrote:</h5>
+                <blockquote class="px-5">
+                  “SG<br>
+                  Mọi người có bao giờ phải dùng 4G trong chính ngôi nhà thương yêu gần chục củ một tháng với full wifi chưa ạ?<br>
+                  Vâng đó là cảm giác của em khi ở ktx Rmit, em vừa dọn vào mà vụ wifi làm em chán quá chán.<br>
+                  Ừ thì full wifi nhưng không vào được là thế nào ?!<br>
+                  ASM thì đang cao điểm mà wifi thế này có chết không cơ chứ, không chỉ ktx mà wifi trường ở đâu cũng yếu ý :(((<br>
+                  Mong trường sớm khắc phục, chứ nhiều bạn ktx cũng như em muốn dọn ra lắm rồi ạ :)))”
+                </blockquote>
+                <p>Translation:</p>
+                <p class="text-justify">
+                  Saigon,<br>
+                  Have you ever had to use cellular data in our dormitory that costs close to ten million (VND) a month including the internet bill? Yes, this is the issue I am having at RMIT dormitory and it is very disappointing. The wi-fi signal is strong but the connection is unstable. Why is this the case? I need to do my assignments but the weak connection across campus is a major hindrance. I hope our school will resolve this issue soon, as many of us living in the dormitory is considering moving out because of the frustration.
+                </p>
+                <p><a href="https://www.facebook.com/rmitvnconf/posts/3426123870836924">Source</a> (accessed on December 7th, 2020).
+                <h5>On October 30th, 2014, an anonymous user wrote:</h5>
+                <blockquote class="px-5">
+                  “SG<br>
+                  Sao wifi trường mình mấy bữa nay củ chuối thế nhỉ<br>
+                  Nghe IT bảo nâng cấp công nghệ mới nhất rồi mà wifi load siêu chậm...”
+                </blockquote>
+                <p>Translation:</p>
+                <p class="text-justify">
+                  Saigon,<br>
+                  Why is the school wi-fi so awful over the past days? The IT department said that they have upgraded the system with the newest technology but the connection is still very slow.
+                </p>
+                <p><a href="https://www.facebook.com/rmitvnconf/posts/675917042524301">Source</a> (accessed on December 8th, 2020).</p>
+                <h5>On August 21st, 2013, an anonymous user wrote:</h5>
+                <blockquote class="px-5">“[SG] mọi người cho em hỏi wifi trường mình dạo này sao chậm thế nhỉ? do bảo trì hay do trường hạ băng thông xuống vậy?”</blockquote>
+                <p>Translation:</p>
+                <p>
+                  Saigon,<br>
+                  Why is the school wi-fi so slow recently? Is it because of technical maintenance or did our school lower the bandwidth?
+                </p>
+                <p><a href="https://www.facebook.com/rmitvnconf/posts/440323122750362">Source</a> (accessed on December 8th, 2020).</p>
+              </div>
 
               <div class="about-author d-flex pt-5">
                 <div class="desc align-self-md-center">
