@@ -15,6 +15,10 @@ export default class RunGame extends Phaser.Scene {
     * ---------CUSTOM PROPERTIES------- *
     *************************************
      */
+    /** @type {string} **/
+    debugText;
+    /** @type {Phaser.GameObjects.Text} **/
+    debugTextObj;
     /** @type {number} **/
     score;
     /** @type {[{MatterJS.BodyType}]} **/
@@ -28,56 +32,52 @@ export default class RunGame extends Phaser.Scene {
     /** @type {Phaser.Types.Input.Keyboard.CursorKeys} **/
     cursor;
     /** @type {Phaser.Input.Pointer} **/
-    touch;
+    pointer;
+    /** @type {Phaser.Cameras.Scene2D.Camera} **/
+    cam;
     /* End of custom properties */
 
 
     init() {
+        this.debugText = "";
         this.matter.set60Hz();
         this.score = 0;
-        this.webExist = true;
     }
 
     create() {
-        // this.debugCreate();  // For debugging purposes only
         this.createBackground();
         this.ceiling = this.createCeilingAnchors();
-        this.player = this.createPlayer(this.game.scale.width / 3, this.game.scale.height / 2);
-        this.web = this.playerShootWeb();
+        this.player = this.createPlayer(GAMESETTINGS.player.initialX, GAMESETTINGS.player.initialY);
+        this.web = this.playerShootWeb(GAMESETTINGS.player.initialX);
 
         this.cursor = this.input.keyboard.createCursorKeys();  // Enable player control via keyboard
-        this.pointer = this.input.activePointer; // Enable player control via mouseclick and touch
+
+        this.setupCamera();
+
+        if (GAMESETTINGS.debug) { this.createDebugInfo(); }
     }
 
     update(time, delta) {
         super.update(time, delta);  // Default code suggestion, don't know why it works yet, maybe consult Phaser documentation?
         this.updatePlayer();
         this.renderPlayerWeb();
+
+        if (GAMESETTINGS.debug) { this.updateDebugInfo(); }
     }
 
 
     /*
     ************************************
     * ----------CUSTOM METHODS-------- *
-    ************************************
+    ************************************/
+    /***
+     * Create the background
+     * @returns {Phaser.GameObjects.Image}
      */
-    // /***
-    //  * For debugging purposes only
-    //  */
-    // debugCreate() {
-    //     this.add.sprite(this.game.scale.width / 2, this.game.scale.height / 2, 'background')
-    //         .setScrollFactor(0, 0);
-    //     this.add.sprite(25, 45, 'ui-health', 0);
-    //     this.add.sprite(50, 45, 'ui-health', 1);
-    //     this.add.sprite(75, 45, 'player');
-    //     this.add.sprite(100, 45, 'player-dead').play('player-dead-anim');
-    //     this.add.sprite(125, 45, 'booster-health').play('booster-health-anim');
-    // }
-
     createBackground() {
         return this.add.image(this.game.scale.width / 2, this.game.scale.height / 2, 'background')
             .setScale(GAMESETTINGS.scaleFactor)
-            .setScrollFactor(0, 0);
+            .setScrollFactor(1, 1);
     }
 
     /***
@@ -125,15 +125,45 @@ export default class RunGame extends Phaser.Scene {
         return anchors;
     }
 
-    playerShootWeb() {
-        let targetAnchorIdx = Math.floor(this.game.scale.width / 2);
+    /***
+     * Configure the viewport to follow the player's character
+     */
+    setupCamera() {
+        let offsetX = -GAMESETTINGS.player.initialX;  // TODO: Only works for initialX = 40
+        let offsetY = GAMESETTINGS.player.initialY / 4;  // TODO: Only works for initialY = 60
+
+        this.cam = this.cameras.main;
+        this.cam.startFollow(
+            this.player,
+            true,
+            1, 0,
+            offsetX, offsetY
+        );
+    }
+
+    /***
+     * Create a player web (type MatterJS constraint) between the player character and a specified point on the ceiling
+     * @param {number} targetAnchorIdx
+     * @returns {MatterJS.ConstraintType}
+     */
+    playerShootWeb(targetAnchorIdx) {
+        this.webExist = true;
         return this.matter.add.constraint(this.player.body, this.ceiling[targetAnchorIdx]);
     }
 
+    /***
+     * Destroy the specified player web (type MatterJS constraint)
+     * @param {MatterJS.ConstraintType} playerWebObject
+     * @returns {Phaser.Physics.Matter.World}
+     */
     playerCutWeb(playerWebObject) {
-        this.matter.world.removeConstraint(playerWebObject, true);
+        this.webExist = false;
+        return this.matter.world.removeConstraint(playerWebObject, true);
     }
 
+    /***
+     * Show the web on screen if it exists
+     */
     renderPlayerWeb() {
         if (!this.graphics) {
             this.graphics = this.add.graphics();
@@ -149,22 +179,76 @@ export default class RunGame extends Phaser.Scene {
         }
     }
 
+    /***
+     * Update the player character's properties according to player input
+     */
     updatePlayer() {
-        let screenHalfWidth = this.game.scale.width / 2
-        if ((this.cursor.left.isDown || this.pointer.downX <= screenHalfWidth && this.pointer.isDown) && this.webExist) {  // Left movement
+        let control = {
+            left: false,
+            right: false,
+            toggleWeb: false
+        };
+
+        // -------------------------------- Categorize inputs -------------------------------- //
+        if (
+            this.cursor.left.isDown && this.webExist
+        ) { control.left = true; }
+        if (
+            this.cursor.right.isDown && this.webExist
+        ) { control.right = true; }
+        if (
+            Phaser.Input.Keyboard.JustDown(this.cursor.space)
+        ) { control.toggleWeb = true; }
+
+        // -------------------------------- Apply input to player character -------------------------------- //
+        if (control.left) {  // Left movement
             this.matter.applyForce(this.player.body, { x: -GAMESETTINGS.controlSensitivity, y: 0 });
         }
-        if ((this.cursor.left.isDown || (this.pointer.downX >= screenHalfWidth && this.pointer.isDown)) && this.webExist) {  // Right movement
+        if (control.right) {  // Right movement
             this.matter.applyForce(this.player.body, { x: GAMESETTINGS.controlSensitivity, y: 0 });
         }
-        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && this.webExist) {  // Cut web
+        if (control.toggleWeb && this.webExist) {  // Cut web
             this.playerCutWeb(this.web);
-            this.webExist = false;
+        } else if (control.toggleWeb && !this.webExist) {  // Shoot web
+            let playerX = Math.floor(this.player.x);
+            let targetAnchorIdx;  // Set at undefined to catch errors when targetAnchorIdx is not set
+
+            if (this.player.body.velocity.x > 0) {
+                targetAnchorIdx = playerX + GAMESETTINGS.player.webOverhead;
+            } else if (this.player.body.velocity.x < 0) {
+                targetAnchorIdx = playerX - GAMESETTINGS.player.webOverhead;
+            } else {
+                targetAnchorIdx = playerX;
+            }
+
+            try {
+                this.web = this.playerShootWeb(targetAnchorIdx);
+            } catch (TypeError) {
+                console.log("Can't find ceiling anchors! Restarting")
+                this.scene.start('runGame');
+            }  // Restart game
         }
-        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && !this.webExist) {  // Shoot web
-            this.web = this.playerShootWeb();
-            this.webExist = true;
-        }
+    }
+
+
+    // =========================================== FOR DEBUGGING PURPOSES =========================================== //
+
+    createDebugInfo() {
+        this.debugTextObj = this.add.text(
+            GAMESETTINGS.scaleFactor, GAMESETTINGS.scaleFactor, this.debugText, { color: "#0f0" }
+        ).setScrollFactor(0);
+    }
+
+    updateDebugInfo() {
+        this.debugText = "STATS FOR NERDS\n\n"
+            + `player.x = ${this.player.x}\n`
+            + `player.y = ${this.player.y}\n`
+            + `webExist = ${this.webExist}\n`
+            + '\n'
+            + `viewport.scrollX ${this.cam.scrollX}\n`
+            + `viewport.scrollY ${this.cam.scrollY}\n`
+        ;
+        this.debugTextObj.text = this.debugText;
     }
     /* End of custom methods */
 }
