@@ -27,6 +27,8 @@ export default class RunGame extends Phaser.Scene {
     webExist;
     /** @type {Phaser.Types.Input.Keyboard.CursorKeys} **/
     cursor;
+    /** @type {Phaser.Input.Pointer} **/
+    touch;
     /* End of custom properties */
 
 
@@ -43,13 +45,14 @@ export default class RunGame extends Phaser.Scene {
         this.player = this.createPlayer(this.game.scale.width / 3, this.game.scale.height / 2);
         this.web = this.playerShootWeb();
 
-        this.cursor = this.input.keyboard.createCursorKeys();  // Enable player control
+        this.cursor = this.input.keyboard.createCursorKeys();  // Enable player control via keyboard
+        this.pointer = this.input.activePointer; // Enable player control via mouseclick and touch
     }
 
     update(time, delta) {
         super.update(time, delta);  // Default code suggestion, don't know why it works yet, maybe consult Phaser documentation?
-        this.renderPlayerWeb();
         this.updatePlayer();
+        this.renderPlayerWeb();
     }
 
 
@@ -73,6 +76,7 @@ export default class RunGame extends Phaser.Scene {
 
     createBackground() {
         return this.add.image(this.game.scale.width / 2, this.game.scale.height / 2, 'background')
+            .setScale(GAMESETTINGS.scaleFactor)
             .setScrollFactor(0, 0);
     }
 
@@ -84,6 +88,7 @@ export default class RunGame extends Phaser.Scene {
      */
     createPlayer(x, y) {
         let player = this.matter.add.sprite(x, y, 'player')
+            .setScale(GAMESETTINGS.scaleFactor)
             .setOrigin(0.5, 0)
             .setMass(GAMESETTINGS.player.mass);
         player.body.force = GAMESETTINGS.player.initialForce;
@@ -94,10 +99,10 @@ export default class RunGame extends Phaser.Scene {
         }
 
         // Exclude legs from collision box
-        player.body.vertices[0].x += 3;
-        player.body.vertices[1].x -= 3;
-        player.body.vertices[2].x -= 3;
-        player.body.vertices[3].x += 3;
+        player.body.vertices[0].x += 3 * GAMESETTINGS.scaleFactor;
+        player.body.vertices[1].x -= 3 * GAMESETTINGS.scaleFactor;
+        player.body.vertices[2].x -= 3 * GAMESETTINGS.scaleFactor;
+        player.body.vertices[3].x += 3 * GAMESETTINGS.scaleFactor;
 
         return player;
     }
@@ -110,7 +115,9 @@ export default class RunGame extends Phaser.Scene {
         let anchors = [];
         for (let i = 0; i < this.game.scale.width; i++) {
             /** @type {MatterJS.BodyType} **/
-            let anchor = this.matter.add.rectangle(i, -1, 1, 2);
+            let anchor = this.matter.add.rectangle(
+                i, -GAMESETTINGS.scaleFactor / 2, GAMESETTINGS.scaleFactor, GAMESETTINGS.scaleFactor
+            );
             anchor.ignoreGravity = true;
             anchor.isStatic = true;
             anchors.push(anchor);
@@ -134,22 +141,27 @@ export default class RunGame extends Phaser.Scene {
         this.graphics.clear();
 
         if (this.webExist) {
-            this.matter.world.renderConstraint(this.web, this.graphics, -1, 1, 1, 0, -1, 0);
+            let lineThickness = GAMESETTINGS.scaleFactor
+            this.matter.world.renderConstraint(
+                this.web, this.graphics,
+                -1, 1, lineThickness, 0, -1, 0
+        );
         }
     }
 
     updatePlayer() {
-        if (this.cursor.left.isDown && this.webExist) {  // Left key
+        let screenHalfWidth = this.game.scale.width / 2
+        if ((this.cursor.left.isDown || this.pointer.downX <= screenHalfWidth && this.pointer.isDown) && this.webExist) {  // Left movement
             this.matter.applyForce(this.player.body, { x: -GAMESETTINGS.controlSensitivity, y: 0 });
         }
-        if (this.cursor.right.isDown && this.webExist) {  // Right key
+        if ((this.cursor.left.isDown || (this.pointer.downX >= screenHalfWidth && this.pointer.isDown)) && this.webExist) {  // Right movement
             this.matter.applyForce(this.player.body, { x: GAMESETTINGS.controlSensitivity, y: 0 });
         }
-        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && this.webExist) {  // Spacebar to cut web
+        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && this.webExist) {  // Cut web
             this.playerCutWeb(this.web);
             this.webExist = false;
         }
-        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && !this.webExist) {  // Spacebar to shoot web
+        if (Phaser.Input.Keyboard.JustDown(this.cursor.space) && !this.webExist) {  // Shoot web
             this.web = this.playerShootWeb();
             this.webExist = true;
         }

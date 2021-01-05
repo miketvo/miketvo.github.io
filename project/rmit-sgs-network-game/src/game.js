@@ -11,14 +11,14 @@ let config = {
         parent: 'game-wrapper',
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: GAMESETTINGS.nativeWidth,
-        height: GAMESETTINGS.nativeHeight
+        width: GAMESETTINGS.nativeWidth * GAMESETTINGS.scaleFactor,
+        height: GAMESETTINGS.nativeHeight * GAMESETTINGS.scaleFactor
     },
     physics: {
         default: "matter",
         matter: {
             gravity: { x: GAMESETTINGS.gravity.x, y: GAMESETTINGS.gravity.y },
-            debug: GAMESETTINGS.debug
+            debug: true
         }
     },
     scene: [
