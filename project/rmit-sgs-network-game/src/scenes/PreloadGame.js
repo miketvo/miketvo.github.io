@@ -34,7 +34,7 @@ export default class PreloadGame extends Phaser.Scene {
     }
 
     loadBackground() {
-        this.load.image('background', 'assets/sprites/background/background.png');
+        this.load.image('background', 'assets/sprites/background/debug-bg.png');
     }
 
     loadEnvironment() {
