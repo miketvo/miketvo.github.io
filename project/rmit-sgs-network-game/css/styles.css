@@ -1,5 +1,60 @@
+@font-face {
+    font-family: "Kenney Blocks";
+    src: url("../assets/font/Kenney Blocks.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Future";
+    src: url("../assets/font/Kenney Future.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Future Narrow";
+    src: url("../assets/font/Kenney Future Narrow.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney High";
+    src: url("../assets/font/Kenney High.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney High Square";
+    src: url("../assets/font/Kenney High Square.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Mini";
+    src: url("../assets/font/Kenney Mini.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Mini Square";
+    src: url("../assets/font/Kenney Mini Square.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Pixel";
+    src: url("../assets/font/Kenney Pixel.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Pixel Square";
+    src: url("../assets/font/Kenney Pixel Square.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Rocket";
+    src: url("../assets/font/Kenney Rocket.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kenney Rocket Square";
+    src: url("../assets/font/Kenney Rocket Square.ttf") format("truetype");
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #000000;
 }

@@ -1,3 +1,6 @@
+import GAMESETTINGS from "../settings.js";
+
+
 /***
  * Assets management class
  */
@@ -7,10 +10,13 @@ export default class PreloadGame extends Phaser.Scene {
     }
 
     preload() {
+        this.load.script('webFont', 'src/lib/webfont.js');  // Enable custom fonts handling
         this.loadUserInterface();
         this.loadBackground();
         this.loadEnvironment();
         this.loadPlayer();
+        this.loadSFX();
+        this.loadSoundtrack();
     }
 
     create() {
@@ -34,10 +40,16 @@ export default class PreloadGame extends Phaser.Scene {
     }
 
     loadBackground() {
-        this.load.image('background', 'assets/sprites/background/debug-bg.png');
+        if (GAMESETTINGS.debug) {
+            this.load.image('background', 'assets/sprites/background/debug-bg.png');
+        } else {
+            this.load.image('background', 'assets/sprites/background/background.png');
+        }
     }
 
     loadEnvironment() {
+        this.load.image('bound', 'assets/sprites/environment/bound.png');
+        this.load.image('bound-left', 'assets/sprites/environment/bound-left.png');
         this.load.spritesheet('booster-health', 'assets/sprites/environment/booster-health.png', {
             frameWidth: 8,
             frameHeight: 10,
@@ -54,14 +66,21 @@ export default class PreloadGame extends Phaser.Scene {
             startFrame: 0,
             endFrame: 4
         });
+        this.load.spritesheet('player-hurt', 'assets/sprites/player/player-hurt.png', {
+            frameWidth: 13,
+            frameHeight: 10,
+            startFrame: 0,
+            endFrame: 4
+        });
     }
 
-    loadSFX() {
-        // To be implemented
+    loadSFX() {  // TODO: convert these files to .mp3 for compatibility with iOS and MacOS
+        this.load.audio('dead-sfx', 'assets/sfx/dead.ogg');
+        this.load.audio('shoot-sfx', 'assets/sfx/shoot.ogg');
     }
 
     loadSoundtrack() {
-        // To be implemented
+        this.load.audio('game-over-audio', 'assets/ost/lose.mp3');
     }
 
     createAnimations() {
@@ -74,6 +93,15 @@ export default class PreloadGame extends Phaser.Scene {
             frameRate: 20,
             repeat: 0,
             hideOnComplete: true
+        });
+        this.anims.create({
+            key: 'player-hurt-anim',
+            frames: this.anims.generateFrameNumbers('player-hurt', {
+                start: 0,
+                end: 4
+            }),
+            frameRate: 20,
+            repeat: 0,
         });
         this.anims.create({
             key: 'booster-health-anim',
