@@ -42,7 +42,7 @@ let config = {
     physics: {
         default: "matter",
         matter: {
-            gravity: { x: GAMESETTINGS.gravity.x, y: GAMESETTINGS.gravity.y },
+            gravity: { x: GAMESETTINGS.gravity.x * GAMESETTINGS.scaleFactor, y: GAMESETTINGS.gravity.y * GAMESETTINGS.scaleFactor },
             debug: debug
         }
     },

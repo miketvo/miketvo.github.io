@@ -50,6 +50,7 @@ export default class PreloadGame extends Phaser.Scene {
     loadEnvironment() {
         this.load.image('bound', 'assets/sprites/environment/bound.png');
         this.load.image('bound-left', 'assets/sprites/environment/bound-left.png');
+        this.load.image('obstacle', 'assets/sprites/environment/obstacle.png');
         this.load.spritesheet('booster-health', 'assets/sprites/environment/booster-health.png', {
             frameWidth: 8,
             frameHeight: 10,

@@ -1,3 +1,4 @@
+import GAMESETTINGS from "../settings.js";
 import game from "../game.js";
 
 
@@ -25,15 +26,15 @@ export default class GameOver extends Phaser.Scene {
                 families: game.customFonts
             },
             active: () => {
-                this.add.text(50, 20, `Game Over\nScore: ${data.score}`, {
-                    fontSize: 120, fontFamily: 'Kenney High Square, Arial, sans-serif', color: '#000', fontStyle: 'bold'
+                this.add.text(6.25 * GAMESETTINGS.scaleFactor, 2.5 * GAMESETTINGS.scaleFactor, `Game Over\nScore: ${data.score}`, {
+                    fontSize: 15 * GAMESETTINGS.scaleFactor, fontFamily: 'Kenney High Square, Arial, sans-serif', color: '#000', fontStyle: 'bold'
                 });
-                this.restart = this.add.text(50, this.game.scale.height - 160, 'Restart', {
-                    fontSize: 120, fontFamily: 'Kenney High Square, Arial, sans-serif', backgroundColor: '#000', fontStyle: 'bold', padding: {
-                        left: 20,
-                        right: 10,
+                this.restart = this.add.text(6.25 * GAMESETTINGS.scaleFactor, this.game.scale.height - 20 * GAMESETTINGS.scaleFactor, 'Restart', {
+                    fontSize: 15 * GAMESETTINGS.scaleFactor, fontFamily: 'Kenney High Square, Arial, sans-serif', backgroundColor: '#000', fontStyle: 'bold', padding: {
+                        left: 2.5 * GAMESETTINGS.scaleFactor,
+                        right: 1.25 * GAMESETTINGS.scaleFactor,
                         top: 0,
-                        bottom: 10
+                        bottom: 1.25 * GAMESETTINGS.scaleFactor
                     }
                 }).setInteractive();
             }
