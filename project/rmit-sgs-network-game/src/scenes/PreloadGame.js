@@ -15,6 +15,7 @@ export default class PreloadGame extends Phaser.Scene {
         this.loadBackground();
         this.loadEnvironment();
         this.loadPlayer();
+        this.loadFilterFX();
         this.loadSFX();
         this.loadSoundtrack();
     }
@@ -75,6 +76,15 @@ export default class PreloadGame extends Phaser.Scene {
         });
     }
 
+    loadFilterFX() {
+        this.load.spritesheet('vignette', 'assets/sprites/filter/vignette.png', {
+            frameWidth: 192,
+            frameHeight: 192,
+            startFrame: 0,
+            endFrame: 4
+        });
+    }
+
     loadSFX() {  // TODO: convert these files to .mp3 for compatibility with iOS and MacOS
         this.load.audio('dead-sfx', 'assets/sfx/dead.ogg');
         this.load.audio('shoot-sfx', 'assets/sfx/shoot.ogg');
@@ -103,6 +113,15 @@ export default class PreloadGame extends Phaser.Scene {
             }),
             frameRate: 20,
             repeat: 0,
+        });
+        this.anims.create({
+            key: 'vignette-anim',
+            frames: this.anims.generateFrameNumbers('vignette', {
+                start: 0,
+                end: 4
+            }),
+            frameRate: 2,
+            repeat: -1,
         });
         this.anims.create({
             key: 'booster-health-anim',
