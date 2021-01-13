@@ -40,6 +40,16 @@ export default class GameOver extends Phaser.Scene {
             }
         });
 
+        this.add.sprite(
+            GAMESETTINGS.nativeWidth / 2 * GAMESETTINGS.scaleFactor,
+            GAMESETTINGS.nativeHeight / 2 * GAMESETTINGS.scaleFactor,
+            'vignette')
+            .setScale(GAMESETTINGS.scaleFactor)
+            .setAlpha(0.05)
+            .setBlendMode(Phaser.BlendModes.ADD)
+            .setScrollFactor(0, 0)
+            .play('vignette-anim');
+
         this.input.on('gameobjectdown', () => {
             clickSFX.play();
             this.scene.start('runGame')

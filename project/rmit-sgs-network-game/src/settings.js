@@ -2,7 +2,7 @@
  * IMPORTANT: Only adjust game balance via this object
  * ***/
 const GAMESETTINGS = {
-    backgroundColor: '#c2c2c2',
+    backgroundColor: '#8f8f8f',
     nativeWidth: 160,
     nativeHeight: 90,
     scaleFactor: 10,  // Scale the pixel art sprites up for smoother graphics
@@ -25,7 +25,7 @@ const GAMESETTINGS = {
         obstacleOverhead: 10,  // Number of obstacles rendered ahead of time. Heavily affect performance
         distanceBetweenObstacles: 32,  // 32 is the width of the obstacle sprite TODO: more scalable approach?
         minimumGap: 64,
-        maximumGap: 90
+        maximumGap: 100
     },
     gravity: {
         x: 0,

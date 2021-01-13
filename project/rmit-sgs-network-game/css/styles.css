@@ -58,3 +58,13 @@ body {
     padding: 0;
     background-color: #000000;
 }
+
+footer {
+    padding-bottom: 5rem;
+}
+
+p {
+    color: white;
+    font-family: "Kenney Future", sans-serif;
+    text-align: center;
+}
