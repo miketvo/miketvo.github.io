@@ -8,6 +8,7 @@ const GAMESETTINGS = {
     scaleFactor: 10,  // Scale the pixel art sprites up for smoother graphics
     player: {
         mass: 0.15,
+        bounce: 0.95,
         initialForce: {
             x: 0,
             y: 0
@@ -25,7 +26,7 @@ const GAMESETTINGS = {
         obstacleOverhead: 10,  // Number of obstacles rendered ahead of time. Heavily affect performance
         distanceBetweenObstacles: 32,  // 32 is the width of the obstacle sprite TODO: more scalable approach?
         minimumGap: 64,
-        maximumGap: 100
+        maximumGap: 100,
     },
     gravity: {
         x: 0,
