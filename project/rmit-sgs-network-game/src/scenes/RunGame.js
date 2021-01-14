@@ -85,6 +85,9 @@ export default class RunGame extends Phaser.Scene {
     /** @type {Phaser.Input.Pointer} **/
     pointer;
 
+    /** @type {Phaser.Input.Touch.TouchManager} **/
+    touchManager;
+
     /** @type {Phaser.Cameras.Scene2D.Camera} **/
     viewport;
     /* End of custom properties */
@@ -131,6 +134,9 @@ export default class RunGame extends Phaser.Scene {
 
         // Enable control via keyboard
         this.cursor = this.input.keyboard.createCursorKeys();
+
+        // Enable control via mouseclick
+        this.pointer = this.input.pointer1;
 
         // Enable camera following
         this.setupCamera();
@@ -211,7 +217,11 @@ export default class RunGame extends Phaser.Scene {
     createObstacles() {
         for (let i = 0; i < GAMESETTINGS.gameplay.obstacleOverhead; i++) {
             // Generate random height and gap according to settings.js
-            let randomObstacleY = this.genRandomObstacleY(this.minimumGap, this.maximumGap);
+            let randomObstacleY = this.genRandomObstacleY(
+                this.minimumGap,
+                this.maximumGap,
+                GAMESETTINGS.gameplay.maxObstacleYDeviation
+            );
 
             // Generate 2 obstacle objects and place them at the generated random height and gap
             /** @type {Phaser.Physics.Matter.Image && Phaser.GameObjects.GameObject} **/
@@ -251,7 +261,7 @@ export default class RunGame extends Phaser.Scene {
             .setVelocity(0, 0)
             .setMass(GAMESETTINGS.player.mass * GAMESETTINGS.scaleFactor);
         player.body.force = GAMESETTINGS.player.initialForce;
-        player.body.restitution = 1;  // Enable bouncing
+        player.body.restitution = GAMESETTINGS.player.bounce;  // Enable bouncing
 
         // Readjust collision box yOffset
         for (let i = 0; i < player.body.vertices.length; i++) {
@@ -467,7 +477,7 @@ export default class RunGame extends Phaser.Scene {
 
         // Calculate targetAnchorOffsetX and targetAnchorOffsetY
         anchorOffsetX = playerX + xOffset;
-        obstacleAbovePlayer = this.getObstacleAbovePlayer(GAMESETTINGS.player.webOverhead * GAMESETTINGS.scaleFactor);
+        obstacleAbovePlayer = this.getObstacleAbovePlayer(xOffset);
         if (obstacleAbovePlayer !== undefined) {
             anchorOffsetY = obstacleAbovePlayer.body.vertices[3].y + GAMESETTINGS.scaleFactor * 3;  // TODO: find out why this works
         }
@@ -642,8 +652,8 @@ export default class RunGame extends Phaser.Scene {
     updatePlayer() {
         // -------------------------------- Categorize inputs -------------------------------- //
         let control = {
-            left: this.cursor.left.isDown,
-            right: this.cursor.right.isDown,
+            left: this.cursor.left.isDown || (this.pointer.isDown && this.pointer.x < this.scale.width / 2),
+            right: this.cursor.right.isDown || (this.pointer.isDown && this.pointer.x > this.scale.width / 2),
         };
 
         // -------------------------------- Apply input to player character -------------------------------- //
