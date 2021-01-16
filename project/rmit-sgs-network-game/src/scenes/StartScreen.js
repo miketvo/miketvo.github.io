@@ -97,8 +97,8 @@ export default class StartScreen extends Phaser.Scene {
         this.web.length = this.player.y;
 
         //  Start game when user clicks/touches the spider
-        this.input.on('gameobjectdown', () => {
-            this.scene.start('runGame');
+        this.input.on('gameobjectup', () => {
+            this.startGame();
         }, this);
 
         // Enable keyboard input to start game
@@ -108,7 +108,7 @@ export default class StartScreen extends Phaser.Scene {
     update(time, delta) {
         super.update(time, delta);
         this.renderPlayerWeb();
-        if (this.cursor.left.isDown || this.cursor.right.isDown) { this.scene.start('runGame'); }
+        if (this.cursor.left.isDown || this.cursor.right.isDown) { this.startGame(); }
     }
 
 
@@ -160,6 +160,10 @@ export default class StartScreen extends Phaser.Scene {
             this.web.pointB.x, this.web.pointB.y - GAMESETTINGS.scaleFactor * 3,
             this.player.x, this.player.y
         );
+    }
+
+    startGame() {
+        this.scene.start('runGame');
     }
     /* End of custom methods */
 }
