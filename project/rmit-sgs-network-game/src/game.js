@@ -1,5 +1,6 @@
 import GAMESETTINGS from "./settings.js";
 import PreloadGame from "./scenes/PreloadGame.js";
+import StartScreen from "./scenes/StartScreen.js";
 import RunGame from "./scenes/RunGame.js";
 import GameOver from "./scenes/GameOver.js";
 
@@ -28,10 +29,10 @@ let customFonts = [
 ];
 
 
-let config = {
+const config = {
     backgroundColor: GAMESETTINGS.backgroundColor,
     pixelArt: true,
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
     scale: {
         parent: 'game-wrapper',
         mode: Phaser.Scale.FIT,
@@ -47,11 +48,21 @@ let config = {
         }
     },
     scene: [
-        PreloadGame, RunGame, GameOver
+        PreloadGame, StartScreen, RunGame, GameOver
     ]
 };
 
-let game = new Phaser.Game(config);
+// Scale the game accordingly in horizontal and vertical mode
+let game;
+if (screen.availWidth > screen.availHeight) {  // Horizontal mode
+    game = new Phaser.Game(config);
+} else {  // Vertical mode
+    game = new Phaser.Game(config);
+    document.querySelector('.portrait-mode-message').setAttribute('style', 'display: block; margin-left: 0; margin-right: 0;');
+    document.querySelector('footer').setAttribute('style', 'display: none;');
+    document.querySelector('body').setAttribute('style', 'margin: 0 2rem;');
+    document.querySelector('#game-wrapper').setAttribute('style', 'margin: 0 2rem;');
+}
 
 
 export default {
