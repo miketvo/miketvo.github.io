@@ -29,7 +29,6 @@ export default class GameOver extends Phaser.Scene {
      * @param {Object} data
      */
     create(data) {
-        let clickSFX = this.sound.add('shoot-sfx');
         this.sound.add('game-over-audio').play();
 
         WebFont.load({
@@ -62,9 +61,8 @@ export default class GameOver extends Phaser.Scene {
             .setScrollFactor(0, 0)
             .play('vignette-anim');
 
-        this.input.on('gameobjectdown', () => {
-            clickSFX.play();
-            this.scene.start('runGame');
+        this.input.on('gameobjectup', () => {
+            this.restartGame();
         }, this);
 
         // Enable keyboard input to restart game
@@ -73,6 +71,10 @@ export default class GameOver extends Phaser.Scene {
 
     update(time, delta) {
         super.update(time, delta);
-        if (this.cursor.left.isDown || this.cursor.right.isDown) { this.scene.start('runGame'); }
+        if (this.cursor.left.isDown || this.cursor.right.isDown) { this.restartGame(); }
+    }
+
+    restartGame() {
+        this.scene.start('runGame');
     }
 }

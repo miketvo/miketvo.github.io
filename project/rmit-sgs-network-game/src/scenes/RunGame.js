@@ -105,6 +105,22 @@ export default class RunGame extends Phaser.Scene {
 
 
     init() {
+        // Reset player.body physics
+        if (this.player !== undefined && this.player.body !== undefined) {
+            this.player.body.force = {
+                x: 0,
+                y: 0,
+            };
+            this.player.body.velocity = {
+                x: 0,
+                y: 0
+            };
+            this.player.body.acceleration = {
+                x: 0,
+                y: 0
+            }
+        }
+
         this.SFX = {
             dead: undefined,
             shot: undefined
@@ -647,11 +663,13 @@ export default class RunGame extends Phaser.Scene {
                 // Randomly generate bomb. Generation chance: bombChance in settings.js
                 if (Phaser.Math.Between(1, 1 / GAMESETTINGS.gameplay.bombChance) === 1 && !currentObstacle.ceilingObstacle.dynamic) {
                     if (this.bomb !== undefined) {
-                        if (this.bomb.exploded) { this.bomb.reset(); }
-                        this.bomb.setPosition(
-                            currentObstacle.ceilingObstacle.x,
-                            (currentObstacle.ceilingObstacle.y + currentObstacle.floorObstacle.y) / 2
-                        );
+                        if (this.bomb.exploded) {
+                            this.bomb.reset();
+                            this.bomb.setPosition(
+                                currentObstacle.ceilingObstacle.x,
+                                (currentObstacle.ceilingObstacle.y + currentObstacle.floorObstacle.y) / 2
+                            );
+                        }
                     } else {
                         this.bomb = new Bomb(
                             this.matter.world,
@@ -697,7 +715,12 @@ export default class RunGame extends Phaser.Scene {
         }
 
         // Check if this is the first player interaction with the game
-        if (this.firstPlayerInput && (this.cursor.left.isDown || this.cursor.right.isDown || this.pointer.isDown || this.touch.isDown)) {
+        if (this.firstPlayerInput && (
+            (this.cursor.left.getDuration() > GAMESETTINGS.controlDelayOnStart && this.cursor.left.isDown) ||
+            (this.cursor.right.getDuration() > GAMESETTINGS.controlDelayOnStart && this.cursor.right.isDown) ||
+            (this.pointer.getDuration() > GAMESETTINGS.controlDelayOnStart && this.pointer.noButtonDown()) ||
+            (this.touch.getDuration() > GAMESETTINGS.controlDelayOnStart && this.touch.noButtonDown()))
+        ) {
             this.firstPlayerInput = false;
         }
     }
@@ -709,7 +732,7 @@ export default class RunGame extends Phaser.Scene {
         this.matter.world.remove(this.player, true);
         this.matter.world.removeConstraint(this.web, true);
         if (this.bomb !== undefined) {
-            this.matter.world.remove(this.bomb);
+            this.matter.world.remove(this.bomb, true);
         }
         for (let i = 0; i < this.obstacles.length; i++) {
             this.matter.world.remove(this.obstacles[i].ceilingObstacle);
@@ -747,10 +770,13 @@ export default class RunGame extends Phaser.Scene {
             + `player.y = ${this.player.y}\n`
             + `player.velocity.x = ${this.player.body.velocity.x}\n`
             + `player.velocity.y = ${this.player.body.velocity.y}\n`
+            + `player.force.x = ${this.player.body.force.x}\n`
+            + `player.force.y = ${this.player.body.force.y}\n`
             + `webExist = ${this.webExist}\n`
             + `webLength = ${this.web.length}\n`
             + `ceilingAnchorOffset = ${this.web.pointB.x}\n`
             + '\n'
+            + `aspectRatio = ${this.game.scale.height / this.game.scale.width}\n`
             + `viewport.scrollX = ${this.viewport.scrollX}\n`
             + `viewport.scrollY = ${this.viewport.scrollY}\n`
             + '\n'
@@ -765,6 +791,12 @@ export default class RunGame extends Phaser.Scene {
             + `minimumGap = ${this.minimumGap}\n`
             + `maximumGap = ${this.maximumGap}\n`
         ;
+        if (this.bomb !== undefined) {
+            this.debugText += '\n'
+                + `bomb.exploded = ${this.bomb.exploded}\n`
+                + `bomb.x = ${this.bomb.x}\n`
+                + `bomb.y = ${this.bomb.y}\n`
+        }
         this.debugTextObj.text = this.debugText;
     }
     /* End of custom methods */

@@ -85,9 +85,9 @@ export default class PreloadGame extends Phaser.Scene {
         });
     }
 
-    loadSFX() {  // TODO: convert these files to .mp3 for compatibility with iOS and MacOS
-        this.load.audio('dead-sfx', 'assets/sfx/dead.ogg');
-        this.load.audio('shoot-sfx', 'assets/sfx/shoot.ogg');
+    loadSFX() {
+        this.load.audio('dead-sfx', 'assets/sfx/dead.mp3');
+        this.load.audio('shoot-sfx', 'assets/sfx/shoot.mp3');
     }
 
     loadSoundtrack() {
