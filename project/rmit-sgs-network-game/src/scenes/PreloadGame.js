@@ -11,18 +11,18 @@ export default class PreloadGame extends Phaser.Scene {
 
     preload() {
         this.load.script('webFont', 'src/lib/webfont.js');  // Enable custom fonts handling
-        this.loadUserInterface();
         this.loadBackground();
         this.loadEnvironment();
         this.loadPlayer();
-        this.loadFilterFX();
+        this.loadFX();
+        this.loadPostProcessingFX();
         this.loadSFX();
         this.loadSoundtrack();
     }
 
     create() {
         this.createAnimations();
-        this.scene.start('runGame');
+        this.scene.start('startScreen');
     }
 
 
@@ -31,20 +31,16 @@ export default class PreloadGame extends Phaser.Scene {
     * ----------CUSTOM METHODS-------- *
     ************************************
      */
-    loadUserInterface() {
-        this.load.spritesheet('ui-health', 'assets/sprites/ui/ui-health.png', {
-            frameWidth: 4,
-            frameHeight: 4,
-            startFrame: 0,
-            endFrame: 1
-        });
-    }
-
     loadBackground() {
         if (GAMESETTINGS.debug) {
             this.load.image('background', 'assets/sprites/background/debug-bg.png');
         } else {
-            this.load.image('background', 'assets/sprites/background/background.png');
+            this.load.spritesheet('background', 'assets/sprites/background/background.png', {
+                frameWidth: 160,
+                frameHeight: 90,
+                startFrame: 0,
+                endFrame: 3
+            });
         }
     }
 
@@ -52,12 +48,7 @@ export default class PreloadGame extends Phaser.Scene {
         this.load.image('bound', 'assets/sprites/environment/bound.png');
         this.load.image('bound-left', 'assets/sprites/environment/bound-left.png');
         this.load.image('obstacle', 'assets/sprites/environment/obstacle.png');
-        this.load.spritesheet('booster-health', 'assets/sprites/environment/booster-health.png', {
-            frameWidth: 8,
-            frameHeight: 10,
-            startFrame: 0,
-            endFrame: 11
-        });
+        this.load.image('bomb', 'assets/sprites/environment/bomb.png');
     }
 
     loadPlayer() {
@@ -76,8 +67,17 @@ export default class PreloadGame extends Phaser.Scene {
         });
     }
 
-    loadFilterFX() {
-        this.load.spritesheet('vignette', 'assets/sprites/filter/vignette.png', {
+    loadFX() {
+        this.load.spritesheet('explosion', 'assets/sprites/fx/explosion.png', {
+            frameWidth: 15,
+            frameHeight: 15,
+            startFrame: 0,
+            endFrame: 5
+        });
+    }
+
+    loadPostProcessingFX() {
+        this.load.spritesheet('vignette', 'assets/sprites/post-processing/vignette.png', {
             frameWidth: 192,
             frameHeight: 192,
             startFrame: 0,
@@ -95,6 +95,17 @@ export default class PreloadGame extends Phaser.Scene {
     }
 
     createAnimations() {
+        if (!GAMESETTINGS.debug) {
+            this.anims.create({
+                key: 'background-anim',
+                frames: this.anims.generateFrameNumbers('background', {
+                    start: 0,
+                    end: 3
+                }),
+                frameRate: 1,
+                repeat: -1,
+            });
+        }
         this.anims.create({
             key: 'player-dead-anim',
             frames: this.anims.generateFrameNumbers('player-dead', {
@@ -115,21 +126,22 @@ export default class PreloadGame extends Phaser.Scene {
             repeat: 0,
         });
         this.anims.create({
+            key: 'explosion-anim',
+            frames: this.anims.generateFrameNumbers('explosion', {
+                start: 0,
+                end: 5
+            }),
+            frameRate: 20,
+            repeat: 0,
+            hideOnComplete: true
+        });
+        this.anims.create({
             key: 'vignette-anim',
             frames: this.anims.generateFrameNumbers('vignette', {
                 start: 0,
                 end: 4
             }),
             frameRate: 2,
-            repeat: -1,
-        });
-        this.anims.create({
-            key: 'booster-health-anim',
-            frames: this.anims.generateFrameNumbers('booster-health', {
-                start: 0,
-                end: 10
-            }),
-            frameRate: 10,
             repeat: -1,
         });
     }

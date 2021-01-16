@@ -56,15 +56,43 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #cdcdcd;
 }
 
 footer {
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+footer p {
+    color: #2b2b2b;
+    text-align: center;
+}
+
+footer a {
+    color: #4e4e4e;
 }
 
 p {
-    color: white;
-    font-family: "Kenney Future", sans-serif;
+    color: #2b2b2b;
+    font-family: "Kenney High", sans-serif;
+}
+
+.portrait-mode-message {
+    display: none;
+    margin: 0 5rem 10rem;
+}
+
+.portrait-mode-message p {
+    color: #999999;
+    font-family: "Kenney Pixel", sans-serif;
+    font-size: large;
+    text-align: center;
+}
+
+.portrait-mode-message h1 {
+    color: #6f6f6f;
+    font-family: "Kenney Blocks", sans-serif;
+    font-size: xx-large;
     text-align: center;
 }
