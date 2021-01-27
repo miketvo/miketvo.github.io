@@ -7295,7 +7295,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #121212;
+  background: #121212 url("../images/01.2021/Background-1.png") space repeat center;
   font-size: 18px;
   line-height: 1.8;
   font-weight: 400;
@@ -7309,7 +7309,6 @@ body {
     content: '';
     width: 400px;
     height: 600px;
-    border: 2px solid rgba(255, 255, 255, 0.05);
     z-index: -1;
     -webkit-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
@@ -7324,7 +7323,6 @@ body {
     content: '';
     width: 400px;
     height: 400px;
-    border: 2px solid rgba(255, 255, 255, 0.05);
     z-index: -1;
     -webkit-transform: rotate(20deg);
     -moz-transform: rotate(20deg);
@@ -8135,6 +8133,7 @@ textarea.form-control {
   border-radius: 50%; }
 
 .ftco-section {
+  background: rgba(18,18,18,0.65);
   padding: 7em 0; }
 
 .ftco-bg-dark {
