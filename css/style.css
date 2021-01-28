@@ -412,6 +412,26 @@ mark,
   max-width: 100%;
   height: auto; }
 
+.img-logo-xsmall {
+  width: 6rem;
+}
+
+.img-logo-small {
+  width: 8rem;
+}
+
+.img-logo-medium {
+  width: 10rem;
+}
+
+.img-logo-large {
+  width: 12rem;
+}
+
+.img-logo-xlarge {
+  width: 14rem;
+}
+
 .figure {
   display: inline-block; }
 
