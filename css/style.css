@@ -414,6 +414,7 @@ mark,
 
 .img-logo-xsmall {
   width: 6rem;
+  margin: auto;
 }
 
 .img-logo-small {
@@ -430,6 +431,10 @@ mark,
 
 .img-logo-xlarge {
   width: 14rem;
+}
+
+.img-logo-xxlarge {
+  width: 16rem;
 }
 
 .figure {
